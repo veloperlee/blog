@@ -5,7 +5,8 @@ import data from './data.js'
 
 function App() {
 
-  let [shoes] = useState()
+  let [shoes] = useState(data)
+  console.log(shoes[0]);
 
   return (
     <div className="App">
@@ -26,18 +27,18 @@ function App() {
       <div className='row'>
         <div className='col-md-4'>
           <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="88%"/>
-          <h4>상품명</h4>
-          <p>상품설명</p>
+          <h4>{shoes[0].title}</h4>
+          <p>{shoes[0].price}</p>
         </div>
         <div className='col-md-4'>
           <img src="https://codingapple1.github.io/shop/shoes2.jpg" width="88%"/>
-          <h4>상품명</h4>
-          <p>상품설명</p>
+          <h4>{shoes[1].title}</h4>
+          <p>{shoes[1].price}</p>
         </div>
         <div className='col-md-4'>
           <img src="https://codingapple1.github.io/shop/shoes3.jpg" width="88%"/>
-          <h4>상품명</h4>
-          <p>상품설명</p>
+          <h4>{shoes[2].title}</h4>
+          <p>{shoes[2].price}</p>
         </div>
       </div>
       </div>
