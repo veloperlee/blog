@@ -5,10 +5,11 @@ import Login from '../Login/Login.js';
 
 function Main() {
 
-    let navigate = useNavigate();
+  let navigate = useNavigate();
 
-    return (
-        <Navbar bg="dark" data-bs-theme="dark">
+  return (
+    <div>
+      <Navbar bg="dark" data-bs-theme="dark">
         <Container>
           <Navbar.Brand href="#home">Navbar</Navbar.Brand>
           <Nav className="me-auto">
@@ -17,7 +18,11 @@ function Main() {
           </Nav>
         </Container>
       </Navbar>
-    )
+      <div className='friend'>
+        <p>아</p>
+      </div>
+    </div>
+  )
 }
 
 export default Main;
