@@ -16,7 +16,7 @@ function App() {
 
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Navbar.Brand onClick={() => { navigate('/event') }}>ShoeShop</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link onClick={() => { navigate('/') }}>Home</Nav.Link>
             <Nav.Link onClick={() => { navigate('/deatil') }}>Deatil</Nav.Link>
@@ -39,10 +39,15 @@ function App() {
               }
             </div>
           </div> </>} />
-        <Route path="/detail" element={<Detail />} />
+        <Route path="/detail/:id" element={<Detail shoes={shoes}/>}/>
         <Route path="about" element={<About />}>
           <Route path="member" element={<div>멤버임</div>} />
           <Route path="location" element={<div>위치정보임</div>} />
+        </Route>
+        <Route path='*' element={<div>없는 페이지에용</div>} />
+        <Route path='/event' element={<Event />}>
+        <Route path="one" element={<p>첫 주문시 양배추즙 서비스</p>} />
+        <Route path="two" element={<p>생일기념 쿠폰받기</p>} />
         </Route>
       </Routes>
 
@@ -70,6 +75,15 @@ function About() {
   return (
     <div>
       <h4>회사정보임</h4>
+      <Outlet></Outlet>
+    </div>
+  )
+}
+
+function Event() {
+  return (
+    <div>
+      <h4>오늘의 이벤트</h4>
       <Outlet></Outlet>
     </div>
   )
