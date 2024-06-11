@@ -19,25 +19,33 @@ import styled from 'styled-components';
 
 function Detail(props) {
 
-    useEffect(() => {
-        console.log("안녕")
-    })
-
-    setTimeout(() => {  }, 1000)
-
-    let [count, setCount] = useState(0);
-
+    // useEffect(() => {
+    //     console.log("안녕")
+    // })
 
     let { id } = useParams();
     let 찾은상품 = props.shoes.find(function (x) {
         return x.id == id
     })
+    let [count, setCount] = useState(0);
+    let [alert, setAlert] = useState(true);
+
+    useEffect(()=> {
+        let a = setTimeout(() => { setAlert(false) }, 2000)
+        return()=>{
+            clearTimeout(a);
+        }
+    }, [])
+
+
+
 
     return (
         <div className="container">
-            <div className='alert alert-warning'>
-                2초이내 구매시 할인
-            </div>
+            {
+                alert == true ? <div className='alert alert-warning'> 2초이내 구매시 할인 </div> : null
+            }
+
             {/* <Box>
             <YellowBtn bg="blue">버튼</YellowBtn>
             </Box> */}
@@ -47,6 +55,7 @@ function Detail(props) {
                 <div className="col-md-6">
                     <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
                 </div>
+                <input></input>
                 <div className="col-md-6">
                     <h4 className="pt-5">{찾은상품.title}</h4>
                     <p>{찾은상품.content}</p>
